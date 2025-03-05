@@ -1,115 +1,162 @@
-26. Box Sizing
- The default behavior of browsers when calculating the width of an element is
- to apply the calculated width and height to the content area, without taking
- any of the padding, border and margin in consideration.
- This approach has proven to be quite complicated to work with.
- You can change this behavior by setting the 
-box-sizing  property.
- The 
-box-sizing  property is a great help. It has 2 values:
- border-box 
-content-box 
-content-box  is the default, the one we had for ages before 
-became a thing.
- box-sizing 
-border-box  is the new and great thing we are looking for. If you set that on
- an element:
- 85
-.my-div { 
-box-sizing: border-box; 
-} 
-width and height calculation include the padding and the border. Only the
- margin is left out, which is reasonable since in our mind we also typically see
- that as a separate thing: margin is outside of the box.
- This property is a small change but has a big impact. CSS Tricks even
- declared an international box-sizing awareness day, just saying, and it's
- recommended to apply it to every element on the page, out of the box, with
- this:
- *, 
-*:before, 
-*:after { 
-  box-sizing: border-box; 
-} 
-27. Display
- The 
-display  property of an object determines how it is rendered by the
- browser.
- It's a very important property, and probably the one with the highest number
- of values you can use.
- Those values include:
- block 
-inline 
-none 
-contents 
-flow 
-flow-root 
-table  (and all the 
-table-*  ones)
- 86
-flex 
-grid 
-list-item 
-inline-block 
-inline-table 
-inline-flex 
-inline-grid 
-inline-list-item 
-plus others you will not likely use, like 
-ruby .
- Choosing any of those will considerably alter the behavior of the browser
- with the element and its children.
- In this section we'll analyze the most important ones not covered elsewhere:
- block 
-inline 
-inline-block 
-none 
-We'll see some of the others in later chapters, including coverage of 
-flex  and 
-grid .
- 27.1. 
-inline 
-Inline is the default display value for every element in CSS.
- div , p  and 
-table ,
- All the HTML tags are displayed inline out of the box except some elements
- like 
-section , which are set as 
-block  by the user agent (the
- browser).
- Inline elements don't have any margin or padding applied.
- Same for height and width.
- You can add them, but the appearance in the page won't change - they are
- calculated and applied automatically by the browser.
- 87
-27.2. 
-inline-block 
-Similar to 
-inline , but with 
-inline-block  
-as you specified.
- 27.3. 
-block 
-width  and 
-height  are applied
- As mentioned, normally elements are displayed inline, with the exception of
- some elements, including
- div 
-p 
-section 
-ul 
-which are set as 
-block  by the browser.
- With 
-display: block , elements are stacked one after each other, vertically,
- and every element takes up 100% of the page.
- The values assigned to the 
-width  and 
-height  properties are respected, if
- you set them, along with 
-margin  and 
-padding .
- 27.4. 
-none 
-Using 
-display: none  makes an element disappear. It's still there in the
- HTML, but just not visible in the browser
+## 24. Padding
+
+The `padding` CSS property is commonly used in CSS to add space on the inner side of an element.
+
+### Remember:
+- `margin` adds space **outside** an element border.
+- `padding` adds space **inside** an element border.
+
+### 24.1. Specific padding properties
+
+`padding` has four related properties that alter the padding of a single edge at once:
+- `padding-top`
+- `padding-right`
+- `padding-bottom`
+- `padding-left`
+
+The usage of those is very simple and cannot be confused, for example:
+
+```css
+padding-left: 30px;
+padding-right: 3em;
+```
+
+### 24.2. Using the `padding` shorthand
+
+`padding` is a shorthand to specify multiple padding values at the same time, and depending on the number of values entered, it behaves differently.
+
+#### 24.2.1. 1 value
+Using a single value applies that to all the paddings: top, right, bottom, left.
+
+```css
+padding: 20px;
+```
+
+#### 24.2.2. 2 values
+Using 2 values applies the first to bottom & top, and the second to left & right.
+
+```css
+padding: 20px 10px;
+```
+
+#### 24.2.3. 3 values
+Using 3 values applies the first to top, the second to left & right, the third to bottom.
+
+```css
+padding: 20px 10px 30px;
+```
+
+#### 24.2.4. 4 values
+Using 4 values applies the first to top, the second to right, the third to bottom, the fourth to left.
+
+```css
+padding: 20px 10px 5px 0px;
+```
+
+So, the order is **top-right-bottom-left**.
+
+### 24.3. Values accepted
+
+`padding` accepts values expressed in any kind of length unit. The most common ones are:
+- `px`
+- `em`
+- `rem`
+
+But many others exist.
+
+---
+
+## 25. Margin
+
+The `margin` CSS property is commonly used in CSS to add space around an element.
+
+### Remember:
+- `margin` adds space **outside** an element border.
+- `padding` adds space **inside** an element border.
+
+### 25.1. Specific margin properties
+
+`margin` has four related properties that alter the margin of a single edge at once:
+- `margin-top`
+- `margin-right`
+- `margin-bottom`
+- `margin-left`
+
+The usage of those is very simple and cannot be confused, for example:
+
+```css
+margin-left: 30px;
+margin-right: 3em;
+```
+
+### 25.2. Using the `margin` shorthand
+
+`margin` is a shorthand to specify multiple margins at the same time, and depending on the number of values entered, it behaves differently.
+
+#### 25.2.1. 1 value
+Using a single value applies that to all the margins: top, right, bottom, left.
+
+```css
+margin: 20px;
+```
+
+#### 25.2.2. 2 values
+Using 2 values applies the first to bottom & top, and the second to left & right.
+
+```css
+margin: 20px 10px;
+```
+
+#### 25.2.3. 3 values
+Using 3 values applies the first to top, the second to left & right, the third to bottom.
+
+```css
+margin: 20px 10px 30px;
+```
+
+#### 25.2.4. 4 values
+Using 4 values applies the first to top, the second to right, the third to bottom, the fourth to left.
+
+```css
+margin: 20px 10px 5px 0px;
+```
+
+So, the order is **top-right-bottom-left**.
+
+### 25.3. Values accepted
+
+`margin` accepts values expressed in any kind of length unit. The most common ones are:
+- `px`
+- `em`
+- `rem`
+
+It also accepts percentage values and the special value `auto`.
+
+### 25.4. Using `auto`
+
+`auto` can be used to tell the browser to select a margin automatically, and it's most commonly used to center an element in this way:
+
+```css
+margin: 0 auto;
+```
+
+As said above, using 2 values applies the first to bottom & top, and the second to left & right.
+
+The modern way to center elements is to use **Flexbox**, with its `justify-content: center;` directive.
+
+Older browsers do not support Flexbox, so if you need compatibility:
+
+```css
+margin: 0 auto;
+```
+
+is still a good choice.
+
+### 25.5. Using a negative margin
+
+`margin` is the only property related to sizing that can have a **negative** value. It's extremely useful.
+
+- Setting a negative **top margin** moves an element over elements before it, and given enough negative value, it will move out of the page.
+- A negative **bottom margin** moves up the elements after it.
+- A negative **right margin** makes the content of the element expand beyond its allowed content size.
+- A negative **left margin** moves the element left over the elements that precede it, and given enough negative value, it will move out of the page.
