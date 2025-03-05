@@ -205,3 +205,37 @@
 ## 45. CSS for print
 
 This book is designed to help you quickly learn CSS from basics to advanced topics, covering everything from selectors to Flexbox and CSS Grid.
+
+## 1. Preface
+
+I wrote this book to help you quickly learn CSS and get familiar with the advanced CSS topics.
+
+CSS, a shorthand for Cascading Style Sheets, is one of the main building blocks of the Web. Its history goes back to the '90s, and along with HTML, it has changed a lot since its humble beginnings.
+
+Having created websites since before CSS existed, I have seen its evolution. CSS is an amazing tool, and in the last few years, it has grown a lot, introducing many fantastic features like CSS Grid, Flexbox, and CSS Custom Properties.
+
+This handbook is aimed at a vast audience.
+
+First, the beginner. I explain CSS from zero in a succinct but comprehensive way, so you can use this book to learn CSS from the basics.
+
+Then, the professional. CSS is often considered like a secondary thing to learn, especially by JavaScript developers. They know CSS is not a real programming language, they are programmers and therefore they should not bother learning CSS the right way. I wrote this book for you, too.
+
+Next, the person that knows CSS from a few years but hasn't had the opportunity to learn the new things in it. We'll talk extensively about the new features of CSS, the ones that are going to build the web of the next decade.
+
+CSS has improved a lot in the past few years and it's evolving fast.
+
+Even if you don't write CSS for a living, knowing how CSS works can help save you some headaches when you need to understand it from time to time, for example while tweaking a web page.
+
+CSS (an abbreviation of Cascading Style Sheets) is the language that we use to style an HTML file, and tell the browser how should it render the elements on the page.
+
+In this book, I talk exclusively about styling HTML documents, although CSS can be used to style other things too.
+
+A CSS file contains several CSS rules. Each rule is composed of two parts:
+- The **selector**
+- The **declaration block**
+
+The selector is a string that identifies one or more elements on the page, following a special syntax that we'll soon talk about extensively.
+
+The declaration block contains one or more declarations, in turn composed of a **property** and **value** pair.
+
+Those are all the things we have in CSS. Carefully organizing properties, associating them with values, and attaching those to specific elements of the page using a selector is the whole argument of this ebook.
