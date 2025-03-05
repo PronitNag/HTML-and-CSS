@@ -58,40 +58,57 @@
 </html>
 ```
 
+# Explanation of Form Attributes in HTML
 
-## In the <form> element of your code, the following attributes are used:
+## 1. `<form action="results.html" method="GET">`
+- **`action="results.html"`**: Specifies that when the form is submitted, the data will be sent to `results.html`.
+- **`method="GET"`**: Specifies that the form data will be sent using the **GET** method, meaning the data will be appended to the URL as query parameters.
 
-# action="results.html"
+---
 
-Specifies the URL (results.html) where the form data will be sent when the user submits the form.<br />
-method="GET"<br />
+## 2. `<label for="Name">Name</label>`
+- The `<label>` is used to describe an input field.
+- **`for="Name"`**: Links this label to the input field with `id="Name"`, so clicking on the label focuses the input.
 
-## Defines the HTTP method used to send the form data.<br />
-GET means the form data will be appended to the URL as query parameters.<br />
-Inside the form, the <input> elements also have attributes that contribute to how data is handled:<br />
+---
 
-type="text" (for Name) and type="password" (for Password)<br />
+## 3. `<input type="text" name="Name" id="Name" value="Pronit">`
+- **`type="text"`**: Defines a single-line text input field.
+- **`name="Name"`**: This is the key for form submission; the entered value will be sent as `Name=UserInput`.
+- **`id="Name"`**: Uniquely identifies this input field and links it with `<label for="Name">`.
+- **`value="Pronit"`**: Pre-fills the input field with the default value `"Pronit"`.
 
-## Defines the type of input field.<br />
-text is for normal text input, and password hides the characters entered.<br />
-name="Name" and name="Password"<br />
+---
 
-# The name attribute is crucial as it determines how the data will be sent in the URL.<br />
-Example: If a user enters "John" as the name and "abc123" as the password, the URL will be:
-<br />
-results.html?Name=John&Password=abc123<br />
-id="Name" and id="Password"<br />
+## 4. `<label for="Password">Password</label>`
+- Similar to the name label, this links to the password input field with `id="Password"`.
 
-# The id attribute uniquely identifies the input fields.<br />
-It is linked to the <label> using for="Name" and for="Password", ensuring that clicking on the label focuses the associated input field.<br />
-value="Pronit" (only in the Name input field)<br />
+---
 
-# Pre-fills the text input field with "Pronit" as the default value.<br />
-type="submit" in <button><br />
+## 5. `<input type="password" name="Password" id="Password">`
+- **`type="password"`**: Defines a password input field where typed characters are hidden.
+- **`name="Password"`**: The value entered will be sent as `Password=UserInput` in the form submission.
+- **`id="Password"`**: Uniquely identifies this input field and links it with `<label for="Password">`.
 
-# This makes the button submit the form when clicked.<br />
-How Are They Linked?<br />
-The name attributes link the input fields to the form submission process.<br />
-The id attributes link the input fields to their respective <label> elements.<br />
-The action and method attributes define how and where the form data is sent.<br />
-The type="submit" button sends the data when clicked.<br />
+---
+
+## 6. `<button type="submit">Submit</button>`
+- **`type="submit"`**: Defines a button that submits the form when clicked.
+
+---
+
+## 7. How Are These Attributes Linked?
+- The **`name` attributes** are used when submitting the form, ensuring the data is sent in key-value pairs (`Name=Pronit` and `Password=1234`).
+- The **`id` attributes** link input fields with their corresponding `<label>` elements.
+- The **`action` and `method` attributes** define where and how the form data is sent.
+- The **submit button** triggers the form submission.
+
+---
+
+### Example Form Submission (GET Method)
+If the user enters:
+- Name: `John`
+- Password: `mypassword`
+
+The browser will send the data like this:
+
