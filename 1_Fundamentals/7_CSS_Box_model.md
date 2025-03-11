@@ -142,7 +142,42 @@ div {
 }
 ```
 
-This covers the key concepts in HTML and CSS box models!
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            margin: 20px;
+            padding: 15px;
+            border: 5px solid black;
+            box-sizing: border-box;
+            background-color: lightblue;
+        }
+        .inline-box {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            margin: 10px;
+            border: 2px solid red;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <h1>Box Model Example</h1>
+    <div class="box">Block Element</div>
+    <span class="inline-box">Inline-Block 1</span>
+    <span class="inline-box">Inline-Block 2</span>
+</body>
+</html>
+```
 
 
 
