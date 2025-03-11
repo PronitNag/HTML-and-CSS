@@ -1,94 +1,148 @@
-# CSS Box Model and Box Sizing
+# Block and Inline Elements
 
-## Introduction
-The CSS **Box Model** describes how elements are structured and spaced on a webpage. Every HTML element is treated as a rectangular box with properties that define its size, spacing, and borders.
+## Block Elements
+- Block elements take up the full width of their container.
+- They start on a new line.
+- Common block elements: `<div>`, `<p>`, `<h1>` - `<h6>`, `<section>`, `<article>`, `<nav>`, `<header>`, `<footer>`, etc.
 
-## 1. The CSS Box Model
-Each element consists of the following layers:
+## Inline Elements
+- Inline elements only take up as much width as necessary.
+- They do not start on a new line.
+- Common inline elements: `<span>`, `<a>`, `<strong>`, `<em>`, `<img>`, `<label>`, `<input>`, etc.
 
-### a) Content
-- The area where text, images, and other elements appear.
+# The Different Boxes That Make Up an Element and How to Style Them
 
-### b) Padding
-- Space between the content and the border.
-- Increases the size of the element without affecting its position.
+Each HTML element is represented as a rectangular box, consisting of the following parts:
 
-### c) Border
-- A boundary surrounding the padding and content.
-- Can have different styles (solid, dashed, dotted, etc.).
+## 1. Width and Height
+- The `width` and `height` properties define the dimensions of an element's content area.
+- Default behavior: Block elements stretch to the full container width unless specified.
 
-### d) Margin
-- The outermost space that separates the element from other elements.
-- Does not affect the element's actual size but controls spacing between elements.
-
-### Box Model Representation:
-```
-| Margin  |
-|---------|
-| Border  |
-|---------|
-| Padding |
-|---------|
-| Content |
-```
-
-### Example:
 ```css
-div {
+.element {
+  width: 200px;
+  height: 100px;
+}
+```
+
+## 2. Margin
+- The `margin` property creates space outside the element, separating it from neighboring elements.
+- It can be set individually (`margin-top`, `margin-right`, `margin-bottom`, `margin-left`) or as a shorthand.
+
+```css
+.element {
+  margin: 10px; /* Applies to all sides */
+  margin: 10px 20px; /* 10px top/bottom, 20px left/right */
+}
+```
+
+## 3. Border
+- The `border` surrounds the content and padding of an element.
+- It consists of width, style, and color.
+
+```css
+.element {
+  border: 2px solid black;
+}
+```
+
+## 4. Padding
+- The `padding` property adds space between the content and the element's border.
+- Like margins, it can be set individually or as a shorthand.
+
+```css
+.element {
+  padding: 10px; /* Applies to all sides */
+  padding: 10px 20px; /* 10px top/bottom, 20px left/right */
+}
+```
+
+# The Alternative Box Model: `box-sizing: border-box`
+
+## Standard Box Model (Default)
+By default, `width` and `height` apply only to the content, excluding padding and border. This can make layouts harder to manage.
+
+```css
+.element {
   width: 200px;
   padding: 20px;
   border: 5px solid black;
-  margin: 10px;
 }
 ```
+- The actual width of the element = `200px (content) + 40px (padding) + 10px (border) = 250px`
 
-- **Total width** = `content width + padding + border + margin`
-- **Total height** = `content height + padding + border + margin`
+## Border-Box Model (`box-sizing: border-box`)
+With `box-sizing: border-box`, padding and border are included in the `width` and `height`, making layout calculations easier.
 
-## 2. Box Sizing Property
-By default, the total size of an element includes content, padding, and border. The `box-sizing` property controls how width and height are calculated.
+```css
+.element {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 20px;
+  border: 5px solid black;
+}
+```
+- The actual width remains `200px` regardless of padding and border.
 
-### a) `content-box` (Default)
-- **Only the content** width/height is set explicitly.
-- Padding and border **increase** the total size.
+# Margin Collapsing
+- When vertical margins of adjacent block elements meet, the larger margin takes effect instead of adding together.
+- Example:
+
+```css
+.div1 {
+  margin-bottom: 20px;
+}
+.div2 {
+  margin-top: 30px;
+}
+```
+- The space between `.div1` and `.div2` will be **30px** (not `20px + 30px = 50px`).
+
+# Basic Display Values
+
+## 1. `display: block;`
+- Takes up the full width.
+- Starts on a new line.
+- Respects width, height, padding, margin.
 
 ```css
 div {
-  width: 200px; /* Only affects content */
-  padding: 20px;
-  border: 5px solid black;
-  box-sizing: content-box; /* Default */
+  display: block;
 }
 ```
-- **Total width** = `200px + 20px + 20px + 5px + 5px = 250px`
 
-### b) `border-box`
-- **Content, padding, and border** are included within the specified width and height.
-- Prevents size expansion due to padding/border.
+## 2. `display: inline;`
+- Takes only as much width as necessary.
+- Does not start on a new line.
+- Ignores width and height properties.
+
+```css
+span {
+  display: inline;
+}
+```
+
+## 3. `display: inline-block;`
+- Behaves like an inline element but allows width and height to be set.
 
 ```css
 div {
-  width: 200px; /* Includes padding and border */
-  padding: 20px;
-  border: 5px solid black;
-  box-sizing: border-box;
+  display: inline-block;
+  width: 100px;
+  height: 50px;
 }
 ```
-- **Total width** = `200px` (fixed)
-- **Actual content width** = `200px - 20px - 20px - 5px - 5px = 150px`
 
-## 3. When to Use `border-box`
-- Useful for **layout consistency**, as elements maintain fixed dimensions.
-- Prevents unwanted overflow due to padding or borders.
+## 4. `display: none;`
+- Hides the element completely (removes it from the document flow).
 
-### Global Usage:
 ```css
-* {
-  box-sizing: border-box;
+div {
+  display: none;
 }
 ```
 
-## Conclusion
-The **Box Model** helps control element spacing, while `box-sizing` defines how dimensions are calculated. Using `border-box` simplifies layout design by ensuring elements remain within set dimensions.
+This covers the key concepts in HTML and CSS box models!
+
 
 
