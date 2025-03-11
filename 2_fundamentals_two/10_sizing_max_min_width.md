@@ -86,5 +86,74 @@ Example:
   height: 30vh; /* 30% of the viewport's height */
 }
 ```
+# supporting Html file 
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Sizing Demo</title>
+    <style>
+        .intrinsic {
+            width: max-content;
+            padding: 10px;
+            background-color: lightblue;
+        }
+        
+        .absolute {
+            width: 300px;
+            height: 200px;
+            background-color: lightcoral;
+        }
+        
+        .percentage {
+            width: 50%;
+            height: 30%;
+            background-color: lightgreen;
+        }
+        
+        .parent {
+            width: 600px;
+            height: 400px;
+            background-color: lightgray;
+            padding: 10px;
+        }
+        
+        .min-max {
+            min-width: 200px;
+            max-width: 500px;
+            min-height: 100px;
+            max-height: 300px;
+            background-color: lightyellow;
+        }
+        
+        .viewport {
+            width: 50vw;
+            height: 30vh;
+            background-color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+    <h2>Intrinsic Size</h2>
+    <div class="intrinsic">This box adjusts based on content size.</div>
+    
+    <h2>Absolute Size</h2>
+    <div class="absolute">This box has a fixed size of 300x200 pixels.</div>
+    
+    <h2>Percentage Size</h2>
+    <div class="parent">
+        <div class="percentage">This box takes 50% of the parent width.</div>
+    </div>
+    
+    <h2>Min/Max Width and Height</h2>
+    <div class="min-max">This box has defined min/max sizes.</div>
+    
+    <h2>Viewport Units</h2>
+    <div class="viewport">This box adapts to viewport size.</div>
+</body>
+</html>
+```
 
