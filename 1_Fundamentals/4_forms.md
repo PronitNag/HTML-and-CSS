@@ -70,5 +70,75 @@
 
 ---
 
-Save this file as `form-attributes.md` and upload it to your GitHub repository. 🚀
+# How Form Submission and Rejection Work/ form validation
+
+## 🔹 How Form Submission Works
+1. **User Fills the Form:**  
+   - The user enters data into the form fields.
+2. **User Clicks the Submit Button (`<button type="submit">` or `<input type="submit">`):**  
+   - The browser starts processing the form submission.
+3. **Validation Checks:**  
+   - If there are **client-side validations** (like `required`, `pattern`, `maxlength`, etc.), the browser checks if the form data meets the requirements.
+   - If **JavaScript validation** is implemented, it runs before submission.
+4. **If Validation Passes:**  
+   - The form is sent to the server (specified in the `action` attribute).
+   - The browser either navigates to a new page (default behavior) or handles the response.
+5. **If Validation Fails:**  
+   - The form is **rejected**, and the user is shown error messages.
+   - The form does not get submitted.
+
+---
+
+## 🔹 How a Form Gets Rejected
+### 1️⃣ Using HTML5 Validation
+HTML provides built-in validation attributes:
+
+```html
+<form>
+  <input type="email" required>
+  <button type="submit">Submit</button>
+</form>
+```
+
+- If the email field is empty or invalid, the form will not submit.
+
+### 2️⃣ Using JavaScript Validation
+JavaScript can be used to prevent submission:
+
+```html
+<form id="myForm">
+  <input type="text" id="name" required>
+  <button type="submit">Submit</button>
+</form>
+<script>
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    let name = document.getElementById("name").value;
+    if (name.trim() === "") {
+      alert("Name field cannot be empty!");
+      event.preventDefault(); // Prevent form submission
+    }
+  });
+</script>
+```
+
+### 3️⃣ Server-Side Validation
+Even if client-side validation is passed, the server might reject the form if:
+- The data does not match expected values.
+- The user does not have permission.
+- There are security issues.
+
+Example (PHP):
+
+```php
+if (empty($_POST['name'])) {
+    echo "Error: Name is required!";
+    exit;
+}
+```
+
+---
+
+This file explains how forms are submitted and rejected. Save it as `form-submission.md` and upload it to your GitHub repository. 🚀
+
+
 
